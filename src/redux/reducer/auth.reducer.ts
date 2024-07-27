@@ -3,25 +3,12 @@ import AuthService from "../service/auth.service";
 import { RootState } from "../store";
 
 export type UserType = {
-    _id: string;
+    id: number;
     fullName: string;
     email: string;
-    designation: string | undefined;
-    company: string | undefined;
-    university: string | undefined;
-    bio: string | undefined;
-    imageLink: string | undefined;
-    linkedin: string | undefined;
-    github: string | undefined;
-    twitter: string | undefined;
-    instagram: string | undefined;
-    isAdmin: boolean;
-    notesCount: number;
-    jobsCount: number;
-    booksCount: number;
-    papersCount: number;
-    filesCount: number;
+    role: "ADMIN" | "USER";
 } | null;
+
 type InitialStateType = {
     user: UserType;
     loading: boolean;
@@ -33,14 +20,6 @@ const initialState: InitialStateType = { user: null, loading: true, error: null 
 export const loginUser = createAsyncThunk("auth/loginUser", async (arg: { email: string; password: string }, thunkApi) => {
     thunkApi.dispatch(authAction.loading());
     const data = await AuthService.loginUser(arg.email, arg.password);
-    if (data.status !== "success") throw new Error(data.message);
-    return data;
-});
-
-export const updateUser = createAsyncThunk("auth/updateUser", async ({ arg, image = null }: { arg: UserType, image: File | null }, thunkApi) => {
-    thunkApi.dispatch(authAction.loading());
-    const data = await AuthService.updateUser(arg, image);
-    if (data.status !== "success") throw new Error(data.message);
     return data;
 });
 
@@ -96,7 +75,7 @@ const authSlice = createSlice({
     extraReducers: (builder: ActionReducerMapBuilder<InitialStateType>): void => {
         builder
             .addCase(loginUser.fulfilled, (state, action) => {
-                state.user = action?.payload?.data?.userDetail;
+                state.user = action?.payload?.user;
                 state.loading = false;
                 state.error = null;
             })
@@ -133,15 +112,6 @@ const authSlice = createSlice({
             .addCase(verifyToken.rejected, (state, action) => {
                 state.error = action?.error?.message ?? null;
                 state.user = null;
-                state.loading = false;
-            })
-            .addCase(updateUser.fulfilled, (state, action) => {
-                state.user = action?.payload?.data?.userDetail;
-                state.loading = false;
-                state.error = null;
-            })
-            .addCase(updateUser.rejected, (state, action) => {
-                state.error = action?.error?.message ?? null;
                 state.loading = false;
             });
     },

@@ -11,6 +11,7 @@ function Router() {
 	// const user = { email: 'vinayakaggarwal05@gmail.com', fullName: 'Vinayak Agarwal', timeCreated: '', univercity: '', profile: null };
 	// const user = useSelector(authSelector).user;
 	const { user, loading } = useSelector(authSelector);
+	
 
 	// protected to prevent route that should not be acceble without logout
 	const Protected = ({

@@ -6,7 +6,9 @@ export const tokenMiddleware = (api: any) => (next: any) => (action: any) => {
         case "auth/loginUser/fulfilled":
         case "auth/signUpUser/fulfilled":
         case "auth/verifyToken/fulfilled":
-            saveToken(action.payload.data.token);
+            if(action?.payload?.token != null){
+                saveToken(action.payload.token);
+            }
             break;
 
         case "auth/verifyToken/rejected":
