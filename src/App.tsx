@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import './App.css';
+import { ToastContainer } from 'react-toastify';
 import { useAppDispatch } from './redux/store';
 import { verifyToken } from './redux/reducer/auth.reducer';
+import Styles from './App.module.scss';
 import Router from './Router';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="App">
+    <div className={Styles.app}>
       <Router />
       <ToastContainer />
     </div>
