@@ -1,22 +1,18 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserType, logoutUser } from '../../redux/reducer/auth.reducer';
-import { useAppDispatch } from '../../store';
-import styles from './Nav.module.scss';
-import { DropDown } from '../custom_input/DropDown';
-import { useSelector } from 'react-redux';
-import { alertSelector } from '../../redux/reducer/alert.reducer';
+import { useAppDispatch } from '../../redux/store';
+import Styles from './Nav.module.scss';
+// import { DropDown } from '../custom_input/DropDown';
 const Nav = ({ user }: { user: UserType }) => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-
-	const alertCount = useSelector(alertSelector).data?.length ?? 0;
 
 	return (
 		<nav className="bg-white fixed dark:bg-gray-900 w-full z-40 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
 			<div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 				<NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-					<img src="./images/logo.png" alt="logo" className={styles.logo} />
+					<img src="./images/logo.png" alt="logo" className={Styles.logo} />
 				</NavLink>
 				<div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 					<button
@@ -49,7 +45,7 @@ const Nav = ({ user }: { user: UserType }) => {
 								Favorite
 							</NavLink>
 						</li>
-						<li>
+						{/* <li>
 							<DropDown
 								title="Upload"
 								dropDownOption={[
@@ -85,25 +81,14 @@ const Nav = ({ user }: { user: UserType }) => {
 									}
 								]}
 								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 inline-flex items-center"
-							/>
-						</li>
+							/> 
+						</li>*/}
 						<li>
 							<NavLink
 								to="/profile"
 								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
 							>
 								Profile
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to="/notifications"
-								className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 relative"
-							>
-								Notifications
-								{alertCount > 0 && (
-									<div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -end-4 dark:border-gray-900">{alertCount}</div>
-								)}
 							</NavLink>
 						</li>
 					</ul>

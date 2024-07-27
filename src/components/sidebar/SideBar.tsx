@@ -1,11 +1,11 @@
 import { UserType } from '../../redux/reducer/auth.reducer';
 import Styles from './SideBar.module.scss';
 
-import Jobs from '../../assets/jobs';
-import Books from '../../assets/books';
-import Notes from '../../assets/notes';
-import Paper from '../../assets/paper';
-import Practical from '../../assets/practical';
+// import Jobs from '../../assets/jobs';
+// import Books from '../../assets/books';
+// import Notes from '../../assets/notes';
+// import Paper from '../../assets/paper';
+// import Practical from '../../assets/practical';
 import { NavLink, useLocation } from 'react-router-dom';
 const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | undefined }) => {
 	const location = useLocation();
@@ -36,7 +36,7 @@ const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | u
 					)}
 
 					<ul className="space-y-2 font-medium bg-gray-50 dark:bg-gray-800 rounded-lg  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-4">
-						<li>
+						{/* <li>
 							<NavLink
 								to="/notes"
 								className="flex items-center p-2 text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group"
@@ -80,7 +80,7 @@ const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | u
 								<Jobs />
 								<span className="ms-3">Jobs</span>
 							</NavLink>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</aside>
