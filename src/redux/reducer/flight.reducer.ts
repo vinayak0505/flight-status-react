@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import FlightResponse, { parseFlightResponse } from "../model/flight/FlightResponse";
+import FlightResponse from "../model/flight/FlightResponse";
 import FlightService from "../service/flight.service";
 
 type InitialStateType = {

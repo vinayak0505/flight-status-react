@@ -7,13 +7,11 @@ import { useSelector } from 'react-redux';
 import SideBar from './components/sidebar/SideBar';
 import BookFlight from './pages/book_flight/BookFlight';
 import UserRole from './redux/model/user/UserRole';
+import TicketPage from './pages/ticket/TicketPage';
 
 function Router() {
-	// todo temp setting user to work without auth
-	// const user = { email: 'vinayakaggarwal05@gmail.com', fullName: 'Vinayak Agarwal', timeCreated: '', univercity: '', profile: null };
-	// const user = useSelector(authSelector).user;
-	const { user, loading } = useSelector(authSelector);
 
+	const { user, loading } = useSelector(authSelector);
 
 	// protected to prevent route that should not be acceble without logout
 	const Protected = ({
@@ -88,14 +86,14 @@ function Router() {
 						</Protected>
 					)
 				},
-				// {
-				// 	path: '/profile/:id',
-				// 	element: (
-				// 		<Protected>
-				// 			<ViewOnlyProfilePage />
-				// 		</Protected>
-				// 	)
-				// },
+				{
+					path: '/ticket',
+					element: (
+						<Protected>
+							<TicketPage />
+						 </Protected>
+					)
+				},
 				// {
 				// 	path: 'favorite',
 				// 	element: (

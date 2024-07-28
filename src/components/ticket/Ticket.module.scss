@@ -1,0 +1,251 @@
+.ticket {
+    --color-height: 70%;
+    --radius: 20px;
+    --primary-color: #090085;
+    border-radius: var(--radius);
+    background-color: white;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    box-sizing: border-box;
+
+    .barcode_container {
+        box-sizing: border-box;
+        position: relative;
+        flex-grow: 1.5;
+        height: 100%;
+        display: flex;
+
+        .barcode {
+            box-sizing: border-box;
+            padding: 10px;
+            rotate: -90deg;
+            height: 80px;
+            top: 60px;
+            border: 1px solid black;
+            background-color: white;
+            position: absolute;
+        }
+
+        .color {
+            align-self: end;
+            border-bottom-left-radius: var(--radius);
+            height: var(--color-height);
+            width: 100%;
+            display: flex;
+            align-items: end;
+            background-color: var(--primary-color);
+            box-sizing: border-box;
+            padding: 20px;
+
+
+            .boarding_till {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .title {
+                    color: white;
+                    font-size: 12px;
+                }
+
+                .content {
+                    color: white;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .boarding_pass {
+        box-sizing: border-box;
+        height: 100%;
+        flex-grow: 5;
+        color: var(--primary-color);
+
+        .header {
+            height: calc(100% - var(--color-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .logo {
+                height: 20px;
+                width: fit-content;
+            }
+
+            .title {
+                text-transform: uppercase;
+                font-size: 36px;
+                font-weight: bold;
+            }
+        }
+
+        .body {
+            padding: 0 20px;
+            height: var(--color-height);
+            width: 100%;
+            background-color: #00ACFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .content_title {
+                font-size: 12px;
+                font-weight: 800;
+            }
+
+            .content {
+                font-size: 12px;
+            }
+
+            .footer {
+                font-size: 20px;
+                display: flex;
+                justify-content: space-between;
+
+                .item {
+                    border-top: 2px solid var(--primary-color);
+                    border-right: 2px solid var(--primary-color);
+                    padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    .title {
+                        font-size: 12px;
+                        font-weight: 800;
+                    }
+        
+                    .content {
+                        font-size: 12px;
+                    }
+                }
+
+                .seat {
+                    aspect-ratio: 1;
+                    padding: 5px;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .title {
+                        font-weight: bold;
+                        font-size: 12px;
+                    }
+
+                    .content {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    .ticket_content {
+        flex-grow: 3;
+        border-left: 2px dashed gray;
+        color: var(--primary-color);
+        box-sizing: border-box;
+        padding: 0px 20px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .company_name {
+            font-size: 40px;
+            margin-top: 12px;
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: var(--color-height);
+
+            .content_title {
+                font-size: 12px;
+                font-weight: 800;
+                line-height: 0;
+            }
+
+            .content {
+                font-size: 12px;
+            }
+
+            .footer {
+                display: flex;
+                justify-content: space-between;
+
+                .item {
+                    .title {
+                        font-weight: bold;
+                        font-size: 10px;
+                    }
+
+                    .content {
+                        font-size: 10px;
+                    }
+                }
+
+                .divider {
+                    width: 2px;
+                    background-color: var(--primary-color);
+                    height: 30px;
+                    rotate: -12deg;
+                }
+            }
+
+            .boarding {
+                display: flex;
+                justify-content: space-between;
+
+                .seat {
+                    aspect-ratio: 1;
+                    width: 40px;
+                    height: 40px;
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border: 2px solid var(--primary-color);
+
+                    .title {
+                        font-weight: bold;
+                        font-size: 12px;
+                    }
+
+                    .content {
+                        font-size: 12px;
+                    }
+                }
+
+                .boarding_till {
+                    .title {
+                        font-weight: bold;
+                        font-size: 12px;
+                    }
+
+                    .content {
+                        font-weight: bold;
+                        font-size: 16px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.ticket_transition{
+    transition: all 0.5s ease-in-out;
+    rotate: -1deg;
+    scale: 0.9;
+
+    &:hover{
+        rotate: 2deg;
+        scale: 1;
+    }
+}

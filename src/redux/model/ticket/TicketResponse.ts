@@ -1,9 +1,10 @@
 import FlightResponse from "../flight/FlightResponse"
 
 type TicketResponse = {
-    filght: FlightResponse;
+    flight: FlightResponse;
     userId: number;
-    seatNumber: string;
+    seatNumber: number;
+    createdAt: String;
 }
 
 export default TicketResponse;

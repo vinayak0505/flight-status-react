@@ -8,12 +8,6 @@ const API = {
 
     FLIGHTS: process.env.REACT_APP_API_BASE_URL + '/flights',
     TICKET: process.env.REACT_APP_API_BASE_URL + '/tickets',
-    PRACTICLEFILE: process.env.REACT_APP_API_BASE_URL + '/practicle_file',
-    JOBS: process.env.REACT_APP_API_BASE_URL + '/jobs',
-    BOOKS: process.env.REACT_APP_API_BASE_URL + '/books',
-    QUESTIONPAPER: process.env.REACT_APP_API_BASE_URL + '/question_paper',
-    FAVOURITE: process.env.REACT_APP_API_BASE_URL + '/favourite',
-    ALERTS: process.env.REACT_APP_API_BASE_URL + '/alert',
 };
 
 export default API;

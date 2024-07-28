@@ -1,0 +1,36 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  background-color: rgb(17 24 39);
+  --primary-color: rgb(59 130 246);
+  --secondary-color: #004b70;
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #868686;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+	text-decoration: none;
+
+	&:link {
+		color: var(--primary-text-color);
+	}
+
+	&:visited {
+		color: var(--primary-text-color);
+	}
+
+	&:hover {
+		color: var(--primary-color);
+	}
+
+	&.active {
+		color: var(--primary-color);
+	}
+}

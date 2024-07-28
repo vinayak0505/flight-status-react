@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { authReducer } from "./reducer/auth.reducer";
 import { helperReducer } from "./reducer/helper.reducer";
 import { flightReducer } from "./reducer/flight.reducer";
+import { ticketReducer } from "./reducer/ticket.reducer";
 import { toastMiddleware } from "./middleware/toast.middleware";
 import { tokenMiddleware } from "./middleware/token.middleware";
 
@@ -11,6 +12,7 @@ const store = configureStore({
         authReducer,
         helperReducer,
         flightReducer,
+        ticketReducer,
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(tokenMiddleware, toastMiddleware)
 });
