@@ -2,11 +2,15 @@ import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs
 import AuthService from "../service/auth.service";
 import { RootState } from "../store";
 
+export enum Role {
+    ADMIN = "ADMIN",
+    USER = "USER"
+}
 export type UserType = {
     id: number;
     fullName: string;
     email: string;
-    role: "ADMIN" | "USER";
+    role: Role;
 } | null;
 
 type InitialStateType = {
@@ -36,10 +40,9 @@ export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, thunkApi
     }
 });
 
-export const signUpUser = createAsyncThunk("auth/signUpUser", async (arg: { email: string; password: string; name: string }, thunkApi) => {
+export const signUpUser = createAsyncThunk("auth/signUpUser", async (arg: { email: string; password: string; name: string, role: Role }, thunkApi) => {
     thunkApi.dispatch(authAction.loading());
-    const data = await AuthService.signUpUser(arg.email, arg.password, arg.name);
-    if (data.status !== "success") throw new Error(data.message);
+    const data = await AuthService.signUpUser(arg.email, arg.password, arg.name, arg.role);
     return data;
 });
 
@@ -48,7 +51,6 @@ export const verifyToken = createAsyncThunk("auth/verifyToken", async (_, thunkA
     const token = localStorage.getItem("token");
     if (token === undefined || token === null) throw new Error();
     const data = await AuthService.verifyToken(token);
-    if (data.status !== "success") throw new Error(data.message);
     return data;
 })
 
@@ -85,7 +87,7 @@ const authSlice = createSlice({
                 state.loading = false;
             })
             .addCase(signUpUser.fulfilled, (state, action) => {
-                state.user = action?.payload?.data?.userDetail;
+                state.user = action?.payload?.user;
                 state.loading = false;
                 state.error = null;
             })
@@ -105,7 +107,7 @@ const authSlice = createSlice({
                 state.error = action?.error?.message ?? null;
             })
             .addCase(verifyToken.fulfilled, (state, action) => {
-                state.user = action?.payload?.data?.userDetail;
+                state.user = action?.payload?.user;
                 state.loading = false;
                 state.error = null;
             })

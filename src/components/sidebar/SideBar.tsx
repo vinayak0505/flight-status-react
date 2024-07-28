@@ -17,14 +17,9 @@ const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | u
 				aria-label="Sidebar"
 			>
 				<div className="h-full px-3 py-4 overflow-y-auto">
-					{user && location.pathname !='/profile' && (
+					{user && location.pathname !=='/profile' && (
 						<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 							<div className="flex flex-col items-center pb-6 pt-6">
-								<img
-									className="w-24 h-24 mb-3 rounded-full shadow-lg"
-									src={user?.imageLink ?? './images/user.jpeg'}
-									alt={user?.fullName}
-								/>
 								<h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
 									{user?.fullName}
 								</h5>

@@ -1,6 +1,6 @@
 import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Auth from './pages/auth/Auth';
-import { authSelector } from './redux/reducer/auth.reducer';
+import { authSelector, Role } from './redux/reducer/auth.reducer';
 import Home from './pages/home/Home';
 import Nav from './components/nav/Nav';
 import { useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ function Router() {
 			return <Navigate to="/login" replace />;
 		}
 
-		if (adminOnly && !user.isAdmin) {
+		if (adminOnly && (user?.role !== Role.ADMIN)) {
 			return <Navigate to="/" replace />;
 		}
 		return children;
