@@ -1,11 +1,12 @@
 import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Auth from './pages/auth/Auth';
-import { authSelector, Role } from './redux/reducer/auth.reducer';
+import { authSelector } from './redux/reducer/auth.reducer';
 import Home from './pages/home/Home';
 import Nav from './components/nav/Nav';
 import { useSelector } from 'react-redux';
 import SideBar from './components/sidebar/SideBar';
 import BookFlight from './pages/book_flight/BookFlight';
+import UserRole from './redux/model/user/UserRole';
 
 function Router() {
 	// todo temp setting user to work without auth
@@ -27,7 +28,7 @@ function Router() {
 			return <Navigate to="/login" replace />;
 		}
 
-		if (adminOnly && (user?.role !== Role.ADMIN)) {
+		if (adminOnly && (user?.role !== UserRole.ADMIN)) {
 			return <Navigate to="/" replace />;
 		}
 		return children;

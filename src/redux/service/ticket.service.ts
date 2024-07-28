@@ -1,6 +1,6 @@
 import axios from "axios";
 import API from "../../constants/api";
-import BuyTicketRequest from "../model/flight/ticket/BuyTicketRequest";
+import BuyTicketRequest from "../model/ticket/BuyTicketRequest";
 
 class TicketService {
     static getAvailableTickets = async (id: string): Promise<number[]> => {

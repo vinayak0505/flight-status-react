@@ -1,4 +1,4 @@
-import { UserType } from '../../redux/reducer/auth.reducer';
+import UserType from '../../redux/model/user/UserType';
 import Styles from './SideBar.module.scss';
 
 // import Jobs from '../../assets/jobs';

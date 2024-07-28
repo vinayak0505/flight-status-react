@@ -1,8 +1,9 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import { UserType, logoutUser } from '../../redux/reducer/auth.reducer';
+import { logoutUser } from '../../redux/reducer/auth.reducer';
 import { useAppDispatch } from '../../redux/store';
 import Styles from './Nav.module.scss';
+import UserType from '../../redux/model/user/UserType';
 // import { DropDown } from '../custom_input/DropDown';
 const Nav = ({ user }: { user: UserType }) => {
 	const dispatch = useAppDispatch();

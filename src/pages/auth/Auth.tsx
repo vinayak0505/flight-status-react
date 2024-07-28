@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { loginUser, Role, signUpUser } from '../../redux/reducer/auth.reducer';
+import { loginUser, signUpUser } from '../../redux/reducer/auth.reducer';
 import { useAppDispatch } from '../../redux/store';
+import UserRole from '../../redux/model/user/UserRole';
 const Auth = ({ showLogin }: { showLogin: boolean }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ const Auth = ({ showLogin }: { showLogin: boolean }) => {
 		if (showLogin) {
 			dispatch(loginUser({ email, password }));
 		} else {
-			dispatch(signUpUser({ email, password, name, role: isAdmin ? Role.ADMIN : Role.USER }));
+			dispatch(signUpUser({ email, password, name, role: isAdmin ? UserRole.ADMIN : UserRole.USER }));
 		}
 	};
 

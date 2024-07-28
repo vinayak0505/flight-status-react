@@ -11,7 +11,7 @@ const Flight = ({ flight, canBookFlight }: { flight: FlightResponse, canBookFlig
                 return "bg-green-100";
             case FlightStatus.DELAYED:
                 return "bg-yellow-100";
-            case FlightStatus.CANCELED:
+            case FlightStatus.CANCELLED:
                 return "bg-red-100";
             default:
                 return "";

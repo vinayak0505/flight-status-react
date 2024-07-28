@@ -29,6 +29,6 @@ export const parseFlightResponse = (response: any): FlightResponse => {
 export enum FlightStatus {
     ON_TIME = "ON_TIME",
     DELAYED = "DELAYED",
-    CANCELED = "CANCELED"
+    CANCELLED = "CANCELLED"
 }
 export default FlightResponse

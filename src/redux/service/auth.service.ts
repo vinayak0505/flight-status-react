@@ -1,7 +1,8 @@
 import axios from 'axios';
 import API from '../../constants/api';
-import { Role, UserType } from '../reducer/auth.reducer';
 import BaseResponse from './base_response';
+import UserRole from '../model/user/UserRole';
+import UserType from '../model/user/UserType';
 
 class AuthService {
     static async loginUser(email: string, password: string) {
@@ -16,7 +17,7 @@ class AuthService {
         return response.data;
     }
 
-    static async signUpUser(email: string, password: string, fullName: string, role: Role) {
+    static async signUpUser(email: string, password: string, fullName: string, role: UserRole) {
         const response = await axios.post(API.SIGNUP, {
             email,
             password,

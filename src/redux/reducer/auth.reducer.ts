@@ -1,17 +1,8 @@
 import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import AuthService from "../service/auth.service";
 import { RootState } from "../store";
-
-export enum Role {
-    ADMIN = "ADMIN",
-    USER = "USER"
-}
-export type UserType = {
-    id: number;
-    fullName: string;
-    email: string;
-    role: Role;
-} | null;
+import UserType from "../model/user/UserType";
+import UserRole from "../model/user/UserRole";
 
 type InitialStateType = {
     user: UserType;
@@ -40,7 +31,7 @@ export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, thunkApi
     }
 });
 
-export const signUpUser = createAsyncThunk("auth/signUpUser", async (arg: { email: string; password: string; name: string, role: Role }, thunkApi) => {
+export const signUpUser = createAsyncThunk("auth/signUpUser", async (arg: { email: string; password: string; name: string, role: UserRole }, thunkApi) => {
     thunkApi.dispatch(authAction.loading());
     const data = await AuthService.signUpUser(arg.email, arg.password, arg.name, arg.role);
     return data;
