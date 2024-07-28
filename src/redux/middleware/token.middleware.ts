@@ -6,7 +6,7 @@ export const tokenMiddleware = (api: any) => (next: any) => (action: any) => {
         case "auth/loginUser/fulfilled":
         case "auth/signUpUser/fulfilled":
         case "auth/verifyToken/fulfilled":
-            if(action?.payload?.token != null){
+            if (action?.payload?.token != null) {
                 saveToken(action.payload.token);
             }
             break;
@@ -21,10 +21,10 @@ export const tokenMiddleware = (api: any) => (next: any) => (action: any) => {
 
 const saveToken = (token: string) => {
     localStorage.setItem("token", token);
-    axios.defaults.headers.common["token"] = token;
+    axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 }
 
 const removeToken = () => {
     localStorage.removeItem("token");
-    delete axios.defaults.headers.common["token"];
+    delete axios.defaults.headers.common["Authorization"];
 }

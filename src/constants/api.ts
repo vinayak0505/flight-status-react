@@ -7,6 +7,7 @@ const API = {
     PROFILE: process.env.REACT_APP_API_BASE_URL + '/auth/profile',
 
     FLIGHTS: process.env.REACT_APP_API_BASE_URL + '/flights',
+    TICKET: process.env.REACT_APP_API_BASE_URL + '/tickets',
     PRACTICLEFILE: process.env.REACT_APP_API_BASE_URL + '/practicle_file',
     JOBS: process.env.REACT_APP_API_BASE_URL + '/jobs',
     BOOKS: process.env.REACT_APP_API_BASE_URL + '/books',

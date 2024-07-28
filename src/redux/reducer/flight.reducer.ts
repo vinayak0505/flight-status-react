@@ -17,6 +17,11 @@ export const getAllFlights = createAsyncThunk("flights/getAllflights", async (_,
     return data;
 });
 
+// export const getFlight = createAsyncThunk("flights/getFlight", async (arg: string, thunkApi) => {
+//     const data = await FlightService.getFlight(arg);
+//     return data;
+// });
+
 
 const flightSlice = createSlice({
     name: "flights",

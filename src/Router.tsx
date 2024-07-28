@@ -5,13 +5,14 @@ import Home from './pages/home/Home';
 import Nav from './components/nav/Nav';
 import { useSelector } from 'react-redux';
 import SideBar from './components/sidebar/SideBar';
+import BookFlight from './pages/book_flight/BookFlight';
 
 function Router() {
 	// todo temp setting user to work without auth
 	// const user = { email: 'vinayakaggarwal05@gmail.com', fullName: 'Vinayak Agarwal', timeCreated: '', univercity: '', profile: null };
 	// const user = useSelector(authSelector).user;
 	const { user, loading } = useSelector(authSelector);
-	
+
 
 	// protected to prevent route that should not be acceble without logout
 	const Protected = ({
@@ -78,14 +79,14 @@ function Router() {
 					index: true,
 					element: <Home />
 				},
-				// {
-				// 	path: '/profile',
-				// 	element: (
-				// 		<Protected>
-				// 			<ProfilePage />
-				// 		</Protected>
-				// 	)
-				// },
+				{
+					path: '/book_flight/:id',
+					element: (
+						<Protected>
+							<BookFlight />
+						</Protected>
+					)
+				},
 				// {
 				// 	path: '/profile/:id',
 				// 	element: (

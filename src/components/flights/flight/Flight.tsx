@@ -1,10 +1,9 @@
 import { useMemo } from "react";
 import FlightResponse, { FlightStatus } from "../../../redux/model/flight/FlightResponse";
 import ProgressBar from "../../progress/ProgressBar";
+import { NavLink } from "react-router-dom";
 
-const Flight = ({ flight }: { flight: FlightResponse }) => {
-
-    const BOOKING_HOURS = process.env.BOOKING_HOURS ? parseInt(process.env.BOOKING_HOURS) : 2;
+const Flight = ({ flight, canBookFlight }: { flight: FlightResponse, canBookFlight: boolean }) => {
 
     const getCardColor = (): String => {
         switch (flight.flightStatus) {
@@ -37,11 +36,7 @@ const Flight = ({ flight }: { flight: FlightResponse }) => {
         return 0;
     }, [flight]);
 
-    const canBookFlight = useMemo(() => {
-        const now = new Date();
-        const dDate = new Date(flight.departureDate);
-        return (dDate.getTime() - (BOOKING_HOURS * 60 * 60 * 1000) > now.getTime());
-    }, [flight, BOOKING_HOURS]);
+
 
     return <div className={"dark:border-gray-700 shadow-md rounded-lg p-6 " + getCardColor()}>
         <h2 className="text-lg font-semibold">Flight Details</h2>
@@ -90,9 +85,9 @@ const Flight = ({ flight }: { flight: FlightResponse }) => {
         <div className="mt-4">
             {
                 canBookFlight ?
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <NavLink to={`/book_flight/${flight.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Book Flight
-                    </button> :
+                    </NavLink> :
                     <ProgressBar percentage={getProgress} />
             }
         </div>

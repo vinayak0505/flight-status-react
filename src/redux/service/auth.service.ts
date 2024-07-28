@@ -27,10 +27,8 @@ class AuthService {
     }
 
     static async logoutUser(token: string) {
-        const response = await axios.put(API.SIGNOUT, null, {
-            headers: { token }
-        });
-        return response.data;
+        // TODO: add logout in future
+        return true;
     }
 
     static async verifyToken(token: string) {
