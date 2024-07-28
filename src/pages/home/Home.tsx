@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux';
+import Flights from '../../components/flights/Flights';
 
 const Home = () => {
 	return (
 		<>
-			Home
+			<Flights />
 		</>
 	);
 };
+
 export default Home;

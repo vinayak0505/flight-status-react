@@ -5,7 +5,8 @@ const API = {
     VERIFY_TOKEN: process.env.REACT_APP_API_BASE_URL + '/auth/verifyToken',
     
     PROFILE: process.env.REACT_APP_API_BASE_URL + '/auth/profile',
-    NOTES: process.env.REACT_APP_API_BASE_URL + '/note',
+
+    FLIGHTS: process.env.REACT_APP_API_BASE_URL + '/flights',
     PRACTICLEFILE: process.env.REACT_APP_API_BASE_URL + '/practicle_file',
     JOBS: process.env.REACT_APP_API_BASE_URL + '/jobs',
     BOOKS: process.env.REACT_APP_API_BASE_URL + '/books',
