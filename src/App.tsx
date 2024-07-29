@@ -4,6 +4,7 @@ import { useAppDispatch } from './redux/store';
 import { verifyToken } from './redux/reducer/auth.reducer';
 import Styles from './App.module.scss';
 import Router from './Router';
+import { requestNotificationPermission } from './notifications/permissions';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -11,6 +12,10 @@ function App() {
   useEffect(() => {
     dispatch(verifyToken());
   }, [dispatch]);
+
+  useEffect(() => {
+    requestNotificationPermission();
+  }, [])
 
   return (
     <div className={Styles.app}>
