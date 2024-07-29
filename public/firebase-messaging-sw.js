@@ -21,16 +21,15 @@ firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log("Received background message ", payload);
-  if(payload.data.type === "ALLFLIGHT"
-  || payload.data.type === "ALLGATE"
+  if(payload?.data?.type === "ALLFLIGHT"
+  || payload?.data?.type === "ALLGATE"
   ) {
     return;
   }
-  const notificationTitle = payload.notification.title;
+  const notificationTitle =  payload?.data?.title ?? payload?.notification?.title;
   const notificationOptions = {
-    body: payload.notification.body,
-    icon: payload.notification.image,
+    body: payload?.data?.body ?? payload?.notification?.body,
+    icon: payload?.notification?.image ?? null,
   };
   
   self.registration.showNotification(notificationTitle, notificationOptions);
