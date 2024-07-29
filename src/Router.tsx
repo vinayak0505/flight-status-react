@@ -8,6 +8,7 @@ import SideBar from './components/sidebar/SideBar';
 import BookFlight from './pages/book_flight/BookFlight';
 import UserRole from './redux/model/user/UserRole';
 import TicketPage from './pages/ticket/TicketPage';
+import UpdateFlight from './pages/update_flight/UpdateFlight';
 
 function Router() {
 
@@ -87,81 +88,21 @@ function Router() {
 					)
 				},
 				{
+					path: '/update_flight/:id',
+					element: (
+						<Protected adminOnly>
+							<UpdateFlight />
+						</Protected>
+					)
+				},
+				{
 					path: '/ticket',
 					element: (
 						<Protected>
 							<TicketPage />
-						 </Protected>
+						</Protected>
 					)
-				},
-				// {
-				// 	path: 'favorite',
-				// 	element: (
-				// 		<Protected>
-				// 			<FavoritePage />
-				// 		</Protected>
-				// 	)
-				// },
-				// {
-				// 	path: '/upload/:uploadType',
-				// 	element: (
-				// 		<Protected>
-				// 			<UploadPage />
-				// 		</Protected>
-				// 	)
-				// },
-				// {
-				// 	path: '/add_alert',
-				// 	element: (
-				// 		<Protected adminOnly>
-				// 			<AlertsUploadPage />
-				// 		</Protected>
-				// 	)
-				// },
-				// {
-				// 	path: '/notifications',
-				// 	element: <Notifications />
-				// },
-				// {
-				// 	path: '/paper',
-				// 	element: <PaperPage />
-				// },
-				// {
-				// 	path: '/paper/:id',
-				// 	element: <PaperDetailPage />
-				// },
-				// {
-				// 	path: '/notes',
-				// 	element: <NotesPage />
-				// },
-				// {
-				// 	path: '/notes/:id',
-				// 	element: <NotesDetailPage />
-				// },
-				// {
-				// 	path: '/books',
-				// 	element: <BooksPage />
-				// },
-				// {
-				// 	path: '/books/:id',
-				// 	element: <BookDetailPage />
-				// },
-				// {
-				// 	path: '/practical',
-				// 	element: <PracticalPage />
-				// },
-				// {
-				// 	path: '/practical/:id',
-				// 	element: <PracticlDetailsPage />
-				// },
-				// {
-				// 	path: '/jobs',
-				// 	element: <JobsPage />
-				// },
-				// {
-				// 	path: '/jobs/:id',
-				// 	element: <JobDetailPage />
-				// },
+				}
 			]
 		}
 	]);

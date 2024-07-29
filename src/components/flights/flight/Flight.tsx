@@ -3,7 +3,7 @@ import FlightResponse, { FlightStatus } from "../../../redux/model/flight/Flight
 import ProgressBar from "../../progress/ProgressBar";
 import { NavLink } from "react-router-dom";
 
-const Flight = ({ flight, canBookFlight }: { flight: FlightResponse, canBookFlight: boolean }) => {
+const Flight = ({ flight, canBookFlight, canUpdateStatus }: { flight: FlightResponse, canBookFlight: boolean, canUpdateStatus: boolean }) => {
 
     const getCardColor = (): String => {
         switch (flight.flightStatus) {
@@ -82,6 +82,14 @@ const Flight = ({ flight, canBookFlight }: { flight: FlightResponse, canBookFlig
                 <p className="text-gray-900 font-medium">{flight.seatCount}</p>
             </div>
         </div>
+        {
+            canUpdateStatus &&
+            <div className={"mt-4"}>
+                <NavLink to={`/update_flight/${flight.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Update Flight Details
+                </NavLink>
+            </div>
+        }
         <div className="mt-4">
             {
                 canBookFlight ?

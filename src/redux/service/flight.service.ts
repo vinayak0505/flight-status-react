@@ -20,6 +20,11 @@ class FlightService {
         const response = await axios.put(API.FLIGHTS + `/${flightId}`, status);
         return response.data;
     }
+
+    static async updateGateStatus(flightId: String, gateId: String) {
+        const response = await axios.put(API.FLIGHTS + `/gate/${flightId}`, { gateNumber: gateId });
+        return response.data;
+    }
 }
 
 export default FlightService;

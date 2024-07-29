@@ -34,6 +34,24 @@ export const updateFlightStatus = createAsyncThunk("flights/updateFlightStatus",
 });
 
 
+export const updateGateStatus = createAsyncThunk("flights/updateGateStatus", async (arg: { flightId: String, gateNumber: string }, thunkApi) => {
+    const data = (thunkApi?.getState() as RootState)?.flightReducer;
+    console.log(data, arg, "data");
+    
+    if(data?.loading || data?.error){
+        return data.flights;
+    }
+    const flights: FlightResponse[] = [];
+    data?.flights?.forEach((flight) => {
+        flights.push({...flight});
+        if (flight.id.toString() === arg.flightId) {
+            flights[flights.length - 1].gateNumber = arg.gateNumber;
+        }
+    })
+    return flights;
+});
+
+
 const flightSlice = createSlice({
     name: "flights",
     initialState: initialState,
@@ -66,6 +84,10 @@ const flightSlice = createSlice({
                 state.flights = [];
                 state.loading = false;
             }).addCase(updateFlightStatus.fulfilled, (state, action) => {
+                state.flights = action?.payload;
+                state.loading = false;
+                state.error = null;
+            }).addCase(updateGateStatus.fulfilled, (state, action) => {
                 state.flights = action?.payload;
                 state.loading = false;
                 state.error = null;

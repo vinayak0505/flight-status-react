@@ -2,7 +2,7 @@ import { getToken, onMessage } from "firebase/messaging";
 import { firebaseMessaging } from "./firebase";
 import onNotification from "./on_notification";
 import { AppDispatch } from "../redux/store";
-import { updateFlightStatus } from "../redux/reducer/flight.reducer";
+import { updateFlightStatus, updateGateStatus } from "../redux/reducer/flight.reducer";
 
 var firebaseToken: string;
 const firebaseMessagingInit = async (dispatch: AppDispatch) => {
@@ -27,8 +27,14 @@ const firebaseMessagingInit = async (dispatch: AppDispatch) => {
             onNotification(payload?.data?.title ?? payload?.notification?.title, payload?.data?.title ?? payload?.notification?.body, payload?.data?.['google.c.a.c_l'])
             return;
         }
-        if (payload?.data?.flightId != null && payload?.data?.flightStatus != null) {
-            dispatch(updateFlightStatus({ flightId: payload?.data?.flightId, flightStatus: payload?.data?.flightStatus }));
+        if (payload?.data?.type === "ALLFLIGHT") {
+            if (payload?.data?.flightId != null && payload?.data?.flightStatus != null) {
+                dispatch(updateFlightStatus({ flightId: payload?.data?.flightId, flightStatus: payload?.data?.flightStatus }));
+            }
+        } else if (payload?.data?.type === "ALLGATE") {
+            if (payload?.data?.flightId != null && payload?.data?.gate != null) {
+                dispatch(updateGateStatus({ flightId: payload?.data?.flightId, gateNumber: payload?.data?.gate }));
+            }
         }
     });
 }
