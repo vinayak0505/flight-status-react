@@ -1,13 +1,14 @@
+import { AppDispatch } from "../redux/store";
 import firebaseMessagingInit from "./firebase_messaging_init";
 
-export const requestNotificationPermission = async () => {
+export const requestNotificationPermission = async (dispatch: AppDispatch) => {
     if (Notification.permission === 'denied') {
         return;
     }
     const permission = await Notification.requestPermission();
 
     if (permission === 'granted') {
-        firebaseMessagingInit();
+        firebaseMessagingInit(dispatch);
     } else if (permission === 'denied') {
         alert("Notification permission have been denies please enable to receive notifications");
     }

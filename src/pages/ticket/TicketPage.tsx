@@ -11,9 +11,6 @@ const TicketPage = () => {
     const { tickets, loading, error } = useSelector(ticketSelector);
     const dispatch = useAppDispatch();
 
-    console.log(tickets);
-
-
     useEffect(() => {
         if (user == null) {
             return;

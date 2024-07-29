@@ -21,7 +21,11 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
     }, [ticket]);
 
     const boarding_date = useMemo(() => {
-        return `${ticket.userId}_${ticket.flight.id}_${ticket.seatNumber}`;
+        // get only data
+        const newdate = new Date(ticket.flight.departureDate);
+        return newdate.toLocaleDateString('en-GB', {
+            day: 'numeric', month: 'short', year: '2-digit'
+          }).replace(/ /g, ' ');          
     }, [ticket]);
 
     return (
@@ -67,7 +71,7 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
                             </div>
                             <div className={Styles.item}>
                                 <div className={Styles.title}>Flight</div>
-                                <div className={Styles.content}>{ticket_id}</div>
+                                <div className={Styles.content}>{ticket.flight.flightNumber}</div>
                             </div>
                             <div className={Styles.seat}>
                                 <div className={Styles.title}>Seat</div>
@@ -100,7 +104,7 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
                             <div className={Styles.divider}></div>
                             <div className={Styles.item}>
                                 <div className={Styles.title}>Flight</div>
-                                <div className={Styles.content}>{ticket_id}</div>
+                                <div className={Styles.content}>{ticket.flight.flightNumber}</div>
                             </div>
                         </div>
                         <div className={Styles.boarding}>

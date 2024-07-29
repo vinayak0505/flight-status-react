@@ -3,17 +3,17 @@ import API from '../../constants/api';
 import BaseResponse from './base_response';
 import UserRole from '../model/user/UserRole';
 import UserType from '../model/user/UserType';
+import { getFirebaseToken } from '../../notifications/firebase_messaging_init';
 
 class AuthService {
     static async loginUser(email: string, password: string) {
-        console.log(email, password);
-        
         const response = await axios.post(API.SIGNIN, {
-            email,
-            password
+            firebase_token: getFirebaseToken(),
+            user: {
+                email,
+                password
+            }
         });
-        console.log(response.data);
-    
         return response.data;
     }
 

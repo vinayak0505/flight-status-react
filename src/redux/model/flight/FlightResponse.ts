@@ -17,4 +17,17 @@ export enum FlightStatus {
     DELAYED = "DELAYED",
     CANCELLED = "CANCELLED"
 }
+
+export const stringToFlightStatus = (str: String): FlightStatus => {
+    switch (str) {
+        case "ON_TIME":
+            return FlightStatus.ON_TIME;
+        case "DELAYED":
+            return FlightStatus.DELAYED;
+        case "CANCELLED":
+            return FlightStatus.CANCELLED;
+        default:
+            return FlightStatus.ON_TIME;
+    }
+}
 export default FlightResponse

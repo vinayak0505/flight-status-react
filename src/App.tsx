@@ -14,8 +14,8 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    requestNotificationPermission();
-  }, [])
+    requestNotificationPermission(dispatch);
+  }, [dispatch])
 
   return (
     <div className={Styles.app}>

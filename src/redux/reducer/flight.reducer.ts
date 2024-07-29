@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import FlightResponse from "../model/flight/FlightResponse";
+import FlightResponse, { stringToFlightStatus } from "../model/flight/FlightResponse";
 import FlightService from "../service/flight.service";
 
 type InitialStateType = {
@@ -17,10 +17,21 @@ export const getAllFlights = createAsyncThunk("flights/getAllflights", async (_,
     return data;
 });
 
-// export const getFlight = createAsyncThunk("flights/getFlight", async (arg: string, thunkApi) => {
-//     const data = await FlightService.getFlight(arg);
-//     return data;
-// });
+export const updateFlightStatus = createAsyncThunk("flights/updateFlightStatus", async (arg: { flightId: String, flightStatus: String }, thunkApi) => {
+    const data = (thunkApi?.getState() as RootState)?.flightReducer;
+    
+    if(data?.loading || data?.error){
+        return data.flights;
+    }
+    const flights: FlightResponse[] = [];
+    data?.flights?.forEach((flight) => {
+        flights.push({...flight});
+        if (flight.id.toString() === arg.flightId) {
+            flights[flights.length - 1].flightStatus = stringToFlightStatus(arg.flightStatus)
+        }
+    })
+    return flights;
+});
 
 
 const flightSlice = createSlice({
@@ -54,6 +65,10 @@ const flightSlice = createSlice({
                 state.error = action?.error?.message ?? null;
                 state.flights = [];
                 state.loading = false;
+            }).addCase(updateFlightStatus.fulfilled, (state, action) => {
+                state.flights = action?.payload;
+                state.loading = false;
+                state.error = null;
             });
     },
 });

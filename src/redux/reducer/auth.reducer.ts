@@ -45,6 +45,15 @@ export const verifyToken = createAsyncThunk("auth/verifyToken", async (_, thunkA
     return data;
 })
 
+//TODO add firebase token
+export const storeFirebaseToken = createAsyncThunk("auth/storeFirebaseToken",  async (args: {firebaseToken:String}, thunkApi) => {
+    thunkApi.dispatch(authAction.loading());
+    const token = localStorage.getItem("token");
+    if (token === undefined || token === null) throw new Error();
+    const data = await AuthService.verifyToken(token);
+    return data;
+})
+
 const authSlice = createSlice({
     name: "auth",
     initialState: initialState,

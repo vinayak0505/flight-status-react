@@ -40,7 +40,6 @@ const BookFlight = () => {
             const tickets: number[] = values[0] as number[];
             const flight: FlightResponse = values[1] as FlightResponse;
             setData({ flightData: flight, seatsBooked: tickets });
-            console.log(tickets);
         }).catch((error) => {
             setError(error?.toString() ?? "Something went wrong");
         }).finally(() => {
