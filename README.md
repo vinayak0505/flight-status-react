@@ -5,15 +5,18 @@ Access the app in your web browser at https://vinayak0505.github.io/flight-statu
 ## Features
 **User Authentication:** Users can sign up, log in, and manage their account details.<br />
 **Admin Management:** Admin users can be created during signup and have the ability to modify flight status.<br />
+**Flight Booking:** Authenticated users can book flights if the onboarding time is less than 2 hours. Otherwise, a progress bar is displayed.<br />
+**Progress Tracking:** A progress bar indicates the flight's progress based on elapsed time compared to total flight duration.<br />
 **Flight Status:** Real-time display of flight status information for all users.<br />
 <img width="1280" alt="Screenshot 2024-07-30 at 5 27 20 PM" src="https://github.com/user-attachments/assets/79bd3f23-7237-4bd7-9535-c2e324112f32">
 **Flight Booking:** Authenticated users can book flights.<br />
 <img width="1280" alt="Screenshot 2024-07-30 at 5 28 04 PM" src="https://github.com/user-attachments/assets/19bded42-d92c-477f-9448-4da46ee979cf">
 **Ticket Management:** Users can view their booked tickets.<br /><img width="1280" alt="Screenshot 2024-07-30 at 5 14 52 PM" src="https://github.com/user-attachments/assets/0d65c726-4887-4092-a954-bb06e29394d0">
-
 **Notifications:** Users receive notifications for flight status changes and booking confirmations via Firebase Cloud Messaging and email.<br />
 **Live Updates:** The flight status screen refreshes automatically to display the latest information.<br />
 **Browser Notifications:** Users receive browser notifications for flight status changes even when the tab is inactive.<br />
+**Navigation:** A left navigation menu provides easy access to app features.<br />
+**Advertising:** Display advertisements on the right side of the screen.<br />
 
 ## Technology Stack
 **Frontend:** React<br />
