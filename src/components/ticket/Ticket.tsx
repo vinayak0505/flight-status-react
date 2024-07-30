@@ -44,7 +44,7 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
 
                 <div className={Styles.boarding_pass}>
                     <div className={Styles.header}>
-                        <img className={Styles.logo} src="/images/logo.png" alt="logo" />
+                        <img className={Styles.logo} src="./images/logo.png" alt="logo" />
                         <div className={Styles.title}>Boarding Pass</div>
                     </div>
                     <div className={Styles.body}>
