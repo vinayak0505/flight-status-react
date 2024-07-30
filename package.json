@@ -1,6 +1,7 @@
 {
   "name": "flight-status-react",
   "version": "0.1.0",
+  "homepage": "https://vinayak0505.github.io/flight-status-react",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
