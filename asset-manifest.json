@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.0c61d357.css",
-    "main.js": "/static/js/main.5263d5df.js",
-    "static/js/453.2d228aa6.chunk.js": "/static/js/453.2d228aa6.chunk.js",
-    "static/media/seat.svg": "/static/media/seat.9e6791496b939bc3603f94b98c967a4c.svg",
-    "static/media/seat_selected.svg": "/static/media/seat_selected.eae1f79a8adc36546f3ae01724c13cc2.svg",
-    "static/media/seat_filled.svg": "/static/media/seat_filled.ef5c5f468c4d42b4631335b9f60823fd.svg",
-    "index.html": "/index.html",
-    "main.0c61d357.css.map": "/static/css/main.0c61d357.css.map",
-    "main.5263d5df.js.map": "/static/js/main.5263d5df.js.map",
-    "453.2d228aa6.chunk.js.map": "/static/js/453.2d228aa6.chunk.js.map"
+    "main.css": "/flight-status-react/static/css/main.0c61d357.css",
+    "main.js": "/flight-status-react/static/js/main.9c6ac4a3.js",
+    "static/js/453.2d228aa6.chunk.js": "/flight-status-react/static/js/453.2d228aa6.chunk.js",
+    "static/media/seat.svg": "/flight-status-react/static/media/seat.9e6791496b939bc3603f94b98c967a4c.svg",
+    "static/media/seat_selected.svg": "/flight-status-react/static/media/seat_selected.eae1f79a8adc36546f3ae01724c13cc2.svg",
+    "static/media/seat_filled.svg": "/flight-status-react/static/media/seat_filled.ef5c5f468c4d42b4631335b9f60823fd.svg",
+    "index.html": "/flight-status-react/index.html",
+    "main.0c61d357.css.map": "/flight-status-react/static/css/main.0c61d357.css.map",
+    "main.9c6ac4a3.js.map": "/flight-status-react/static/js/main.9c6ac4a3.js.map",
+    "453.2d228aa6.chunk.js.map": "/flight-status-react/static/js/453.2d228aa6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c61d357.css",
-    "static/js/main.5263d5df.js"
+    "static/js/main.9c6ac4a3.js"
   ]
 }
