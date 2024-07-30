@@ -44,7 +44,7 @@ const UpdateFlight = () => {
     }, [flightId]);
 
     if (loading) {
-        return <Loading/>
+        return <Loading />
     }
 
     if (error || data == null) {
@@ -110,7 +110,7 @@ const UpdateFlight = () => {
             <p className="text-white mt-4 text-xl">Update Flight Status</p>
             <div className="flex gap-4 mt-2">
                 <DropDown
-                    title="Upload"
+                    title="Flight Status"
                     dropDownOption={[
                         {
                             name: FlightStatus.CANCELLED,
@@ -126,14 +126,14 @@ const UpdateFlight = () => {
                     className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 inline-flex items-center"
                 />
                 <button disabled={isUpdateDisabled()} onClick={onUpdateStatusClicked} className={`${isUpdateDisabled() ? "bg-gray-500" : "bg-blue-500 hover:bg-blue-700"} text-white font-bold py-2 px-4 rounded mt-4`}>
-                    Update Gate to {gate ?? data.flightData.gateNumber}
+                    Update Status to {status ?? data.flightData.flightStatus}
                 </button>
             </div>
             <p className="text-white mt-4 text-xl">Update Gate Status</p>
             <div className="flex gap-4 mt-2">
                 <input type="text" value={gate} onChange={(e) => setGate(e.target.value)} />
                 <button disabled={isGateUpdateDisabled()} onClick={onGateStatusClicked} className={`${isGateUpdateDisabled() ? "bg-gray-500" : "bg-blue-500 hover:bg-blue-700"} text-white font-bold py-2 px-4 rounded mt-4`}>
-                    Update Status to {status ?? data.flightData.flightStatus}
+                    Update Gate to {gate ?? data.flightData.gateNumber}
                 </button>
             </div>
         </div>
