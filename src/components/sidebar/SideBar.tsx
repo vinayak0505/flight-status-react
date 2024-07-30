@@ -1,4 +1,5 @@
 import UserType from '../../redux/model/user/UserType';
+import Advertisement from '../Advertisement/Advertisement';
 import Styles from './SideBar.module.scss';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | u
 				aria-label="Sidebar"
 			>
 				<div className="h-full px-3 py-4 overflow-y-auto">
-					{user && location.pathname !=='/profile' && (
+					{user && location.pathname !== '/profile' && (
 						<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 							<div className="flex flex-col items-center pb-6 pt-6">
 								<h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
@@ -52,11 +53,10 @@ const SideBar = ({ user, children }: { user: UserType; children: JSX.Element | u
 				className="fixed right-0  w-64 h-screen transition-transform translate-x-full lg:-translate-x-0"
 				aria-label="Sidebar"
 			>
-				<div className="h-full px-3 py-4 overflow-y-auto">
-					<div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-						<div className="flex flex-col items-center pb-6 pt-6">
-							{/* todo add advertisement */}
-							advertisement
+				<div className="h-full px-3 py-4 overflow-y-auto ">
+					<div className="w-full max-w-sm f-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+						<div className="flex flex-col items-center">
+							<Advertisement />
 						</div>
 					</div>
 				</div>

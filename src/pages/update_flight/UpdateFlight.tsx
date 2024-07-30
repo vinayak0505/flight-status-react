@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import DropDown from '../../components/dropdown/DropDown';
 import UserRole from '../../redux/model/user/UserRole';
 import { authSelector } from '../../redux/reducer/auth.reducer';
+import Loading from '../../components/loading/Loading';
 
 const UpdateFlight = () => {
 
@@ -43,7 +44,7 @@ const UpdateFlight = () => {
     }, [flightId]);
 
     if (loading) {
-        return <p className="text-white text-center">Loading...</p>
+        return <Loading/>
     }
 
     if (error || data == null) {

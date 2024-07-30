@@ -11,6 +11,7 @@ import SeatIcon from "../../assets/images/seat.svg";
 import SeatFilledIcon from "../../assets/images/seat_filled.svg";
 import SeatSelectedIcon from "../../assets/images/seat_selected.svg";
 import BuyTicketRequest from '../../redux/model/ticket/BuyTicketRequest';
+import Loading from '../../components/loading/Loading';
 
 const BookFlight = () => {
 
@@ -42,11 +43,11 @@ const BookFlight = () => {
     }, [flightId]);
 
     if (loading) {
-        return <p>Loading...</p>
+        return <Loading/>
     }
 
     if (error || data == null) {
-        return <p>{error ?? "Something went wrong"}</p>
+        return <p className={"text-white"}>{error ?? "Something went wrong"}</p>
     }
 
     const getIcon = (seat: number) => {

@@ -6,13 +6,14 @@ import Flight from "./flight/Flight";
 import FlightResponse from "../../redux/model/flight/FlightResponse";
 import { authSelector } from "../../redux/reducer/auth.reducer";
 import UserRole from "../../redux/model/user/UserRole";
+import Loading from "../loading/Loading";
 
 const Flights = () => {
     const dispatch = useAppDispatch();
 
     const BOOKING_HOURS = process.env.BOOKING_HOURS ? parseInt(process.env.BOOKING_HOURS) : 2;
 
-    const { flights } = useSelector(flightSelector);
+    const { flights, loading } = useSelector(flightSelector);
     const { user } = useSelector(authSelector);
 
     useEffect(() => {
@@ -31,6 +32,9 @@ const Flights = () => {
 
     }, [flights, BOOKING_HOURS]);
 
+    if(loading){
+        return <Loading/>
+    }
 
     return (
         <div className="flex flex-col gap-3">
