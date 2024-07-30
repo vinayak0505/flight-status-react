@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import TicketService from '../../redux/service/ticket.service';
 import FlightService from '../../redux/service/flight.service';
 import BookFlightData from './BookFlightData';
-import FlightResponse, { FlightStatus } from '../../redux/model/flight/FlightResponse';
+import FlightResponse from '../../redux/model/flight/FlightResponse';
 import Flight from '../../components/flights/flight/Flight';
 import Styles from './BookFlight.module.scss';
 
