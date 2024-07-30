@@ -24,7 +24,7 @@ Access the app in your web browser at https://vinayak0505.github.io/flight-statu
 **Database:** postgresql<br />
 **Authentication:** spring sequrity and jwt token<br />
 **Notifications:** Firebase Cloud Messaging and smtp for mail<br />
-<img width="1280" alt="Screenshot 2024-07-30 at 11 07 09 AM" src="https://github.com/user-attachments/assets/22b238cd-d791-43af-b3cb-20d2f480ecbc">
+<img width="731" alt="Screenshot 2024-07-30 at 11 07 09 AM" src="https://github.com/user-attachments/assets/e49dceea-7364-4d01-bee2-a1ec0165c2ac">
 <img width="1280" alt="Screenshot 2024-07-30 at 11 06 49 AM" src="https://github.com/user-attachments/assets/2236cc88-012d-4798-8a88-7df28a02575c">
 
 ## Installation
