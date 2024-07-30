@@ -1,6 +1,10 @@
 ## Flight Status App
 **A real-time flight status application with user authentication, admin management, flight booking, and live updates.**
-Access the app in your web browser at https://vinayak0505.github.io/flight-status-react
+Access the app in your web browser at http://flight.orendra.com/
+
+**DemoCredentials(if needed)**
+email - vinayakagarwal05@gmail.com
+password - qwerty12345
 
 ## Features
 **User Authentication:** Users can sign up, log in, and manage their account details.<br />
@@ -26,6 +30,7 @@ Access the app in your web browser at https://vinayak0505.github.io/flight-statu
 **Notifications:** Firebase Cloud Messaging and smtp for mail<br />
 <img width="731" alt="Screenshot 2024-07-30 at 11 07 09 AM" src="https://github.com/user-attachments/assets/e49dceea-7364-4d01-bee2-a1ec0165c2ac">
 <img width="1280" alt="Screenshot 2024-07-30 at 11 06 49 AM" src="https://github.com/user-attachments/assets/2236cc88-012d-4798-8a88-7df28a02575c">
+<img width="361" alt="Screenshot 2024-07-30 at 10 09 49 PM" src="https://github.com/user-attachments/assets/006a6362-c2ed-4806-a415-b971caf0fb72">
 
 ## Installation
 Clone the repository:
