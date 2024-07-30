@@ -2,8 +2,8 @@
 **A real-time flight status application with user authentication, admin management, flight booking, and live updates.**
 Access the app in your web browser at http://flight.orendra.com/
 
-**DemoCredentials(if needed)**
-email - vinayakagarwal05@gmail.com
+**DemoCredentials(if needed)**<br />
+email - vinayakagarwal05@gmail.com<br />
 password - qwerty12345
 
 ## Features
