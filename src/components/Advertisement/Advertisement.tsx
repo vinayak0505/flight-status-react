@@ -1,4 +1,3 @@
-import { link } from "fs";
 import Carousel from "../carousel/Carousel"
 
 const images = [

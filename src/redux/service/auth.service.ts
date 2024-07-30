@@ -19,10 +19,13 @@ class AuthService {
 
     static async signUpUser(email: string, password: string, fullName: string, role: UserRole) {
         const response = await axios.post(API.SIGNUP, {
-            email,
-            password,
-            fullName,
-            role
+            firebase_token: getFirebaseToken(),
+            user: {
+                email,
+                password,
+                fullName,
+                role
+            }
         });
         return response.data;
     }
