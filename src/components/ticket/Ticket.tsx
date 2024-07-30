@@ -25,7 +25,7 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
         const newdate = new Date(ticket.flight.departureDate);
         return newdate.toLocaleDateString('en-GB', {
             day: 'numeric', month: 'short', year: '2-digit'
-          }).replace(/ /g, ' ');          
+        }).replace(/ /g, ' ');
     }, [ticket]);
 
     return (
@@ -48,19 +48,20 @@ const Ticket = ({ ticket, fullName }: { ticket: TicketResponse, fullName: string
                         <div className={Styles.title}>Boarding Pass</div>
                     </div>
                     <div className={Styles.body}>
-                        <div>
+                        <img className={Styles.background} src="./images/world_map.png" alt="background" />
+                        <div className={Styles.forward}>
                             <div className={Styles.content_title}>Name of passenger</div>
                             <div className={Styles.content}>{fullName}</div>
                         </div>
-                        <div>
+                        <div className={Styles.forward}>
                             <div className={Styles.content_title}>From</div>
                             <div className={Styles.content}>{ticket.flight.source}</div>
                         </div>
-                        <div>
+                        <div className={Styles.forward}>
                             <div className={Styles.content_title}>To</div>
                             <div className={Styles.content}>{ticket.flight.destination}</div>
                         </div>
-                        <div className={Styles.footer}>
+                        <div className={Styles.footer+ " " + Styles.forward}>
                             <div className={Styles.item}>
                                 <div className={Styles.title}>Gate</div>
                                 <div className={Styles.content}>{ticket.flight.gateNumber}</div>

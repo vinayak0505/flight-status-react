@@ -28,7 +28,7 @@ const TicketPage = () => {
 
 
     return (
-        <div className={"flex flex-col gap-3"}>
+        <div className="flex flex-col gap-3 content-center items-center">
             {
                 tickets?.map((ticket, i) => <Ticket key={i} ticket={ticket} fullName={user.fullName ?? ""} />)
             }
