@@ -10,10 +10,12 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    // verify token if user has saved token in local storage
     dispatch(verifyToken());
   }, [dispatch]);
 
   useEffect(() => {
+    // request notiication permisstion and get device token if accepted
     requestNotificationPermission(dispatch);
   }, [dispatch])
 

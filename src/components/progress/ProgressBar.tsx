@@ -6,7 +6,8 @@ interface customProgressStyle extends CSSProperties {
     '--completed': String;
 }
 
-
+// progress bar with animation
+// percentage is a number between 0 and 100
 const ProgressBar = ({ percentage }: { percentage: number }) => {
     const style: customProgressStyle = { '--completed': `${percentage}%` };
 

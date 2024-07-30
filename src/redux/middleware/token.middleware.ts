@@ -1,7 +1,8 @@
 import axios from "axios";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-export const tokenMiddleware = (api: any) => (next: any) => (action: any) => {
+// token middle for storing or removing token
+// this will automatically catch error state and remove token when get not authenticated state
+export const tokenMiddleware = (_: any) => (next: any) => (action: any) => {
     switch (action.type) {
         case "auth/loginUser/fulfilled":
         case "auth/signUpUser/fulfilled":

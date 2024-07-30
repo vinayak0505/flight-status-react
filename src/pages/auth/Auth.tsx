@@ -3,6 +3,9 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { loginUser, signUpUser } from '../../redux/reducer/auth.reducer';
 import { useAppDispatch } from '../../redux/store';
 import UserRole from '../../redux/model/user/UserRole';
+
+// shows both login and signup state
+// user can get admin access while checking admin box in signup
 const Auth = ({ showLogin }: { showLogin: boolean }) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');

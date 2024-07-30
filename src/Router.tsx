@@ -11,13 +11,21 @@ import TicketPage from './pages/ticket/TicketPage';
 import UpdateFlight from './pages/update_flight/UpdateFlight';
 import Loading from './components/loading/Loading';
 
+/**
+ * 
+ * @returns {JSX.Element}
+ * react router dom for navigating between pages
+ */
 function Router() {
 
+	// getting userdetails and loading state from store
 	const { user, loading } = useSelector(authSelector);
 	
-	// protected to prevent route that should not be acceble without logout
+	// protected to prevent route that should not be acceble without login
+	// protected item cannot be visited by used that is not logged in
+	// is will redirect to login page and after successfull login redirect back to protected item
 	const Protected = ({
-		adminOnly = false,
+		adminOnly = false, // some pages are admin only so user need to have admin role to access it
 		children
 	}: {
 		adminOnly?: boolean;
@@ -34,6 +42,7 @@ function Router() {
 		return children;
 	};
 
+	// if use is logged in then they will not able to reach login page
 	const LoggedIn = ({ children }: { children: JSX.Element }) => {
 		if (user) {
 			const path = localStorage.getItem('path_history') ?? '/';
@@ -46,7 +55,7 @@ function Router() {
 	// routes
 	const browserRouter = createBrowserRouter([
 		{
-			path: '/login',
+			path: '/login', // login page
 			element: (
 				<LoggedIn>
 					<Auth showLogin={true} />
@@ -54,7 +63,7 @@ function Router() {
 			)
 		},
 		{
-			path: '/register',
+			path: '/register', // signup page
 			element: (
 				<LoggedIn>
 					<Auth showLogin={false} />
@@ -62,11 +71,11 @@ function Router() {
 			)
 		},
 		{
-			path: '*',
+			path: '*', // if some page is not found then redirect to home
 			element: <Navigate to="/" replace />
 		},
 		{
-			path: '/',
+			path: '/', // base page which will be always visible and has nav and sidebar
 			element: (
 				<>
 					<Nav user={user} />
@@ -108,6 +117,7 @@ function Router() {
 		}
 	]);
 
+	// if user state is loading show loading screen
 	if (loading) return (
 		<div className={"h-screen w-screen"}>
 			<Loading />

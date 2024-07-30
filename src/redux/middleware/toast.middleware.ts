@@ -1,7 +1,8 @@
 import { toast } from "react-toastify";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
-export const toastMiddleware = (api: any) => (next: any) => (action: any) => {
+// toast middleware for sending toast form anywhere within content
+// this will automatically cathc error state and display toast
+export const toastMiddleware = (_: any) => (next: any) => (action: any) => {
   switch (action?.type) {
     case "auth/loginUser/fulfilled":
       toast.info("Logged in successfully");

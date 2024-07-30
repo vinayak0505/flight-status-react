@@ -5,6 +5,9 @@ import { AppDispatch } from "../redux/store";
 import { updateFlightStatus, updateGateStatus } from "../redux/reducer/flight.reducer";
 
 var firebaseToken: string;
+
+// firebase messaging init state
+// initailise firebase messaging and generate device token
 const firebaseMessagingInit = async (dispatch: AppDispatch) => {
     const messaging = await firebaseMessaging();
     // there are browsers that does not support firebase messageing

@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (arg: { email:
 });
 
 /**
- * Logout the user by signing them out
+ * Logout the user by deleting the token and redirecting to login page
  */
 export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, thunkApi) => {
     const token = localStorage.getItem("token");
@@ -45,14 +45,7 @@ export const verifyToken = createAsyncThunk("auth/verifyToken", async (_, thunkA
     return data;
 })
 
-//TODO add firebase token
-export const storeFirebaseToken = createAsyncThunk("auth/storeFirebaseToken",  async (args: {firebaseToken:String}, thunkApi) => {
-    thunkApi.dispatch(authAction.loading());
-    const token = localStorage.getItem("token");
-    if (token === undefined || token === null) throw new Error();
-    const data = await AuthService.verifyToken(token);
-    return data;
-})
+
 
 const authSlice = createSlice({
     name: "auth",

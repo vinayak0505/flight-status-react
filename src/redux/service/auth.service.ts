@@ -5,7 +5,9 @@ import UserRole from '../model/user/UserRole';
 import UserType from '../model/user/UserType';
 import { getFirebaseToken } from '../../notifications/firebase_messaging_init';
 
+// authentication service
 class AuthService {
+    // login user and also provide device token for messaging
     static async loginUser(email: string, password: string) {
         const response = await axios.post(API.SIGNIN, {
             firebase_token: getFirebaseToken(),
@@ -17,6 +19,7 @@ class AuthService {
         return response.data;
     }
 
+    // signup user and also provide device token for messaging
     static async signUpUser(email: string, password: string, fullName: string, role: UserRole) {
         const response = await axios.post(API.SIGNUP, {
             firebase_token: getFirebaseToken(),
@@ -31,7 +34,6 @@ class AuthService {
     }
 
     static async logoutUser(token: string) {
-        // TODO: add logout in future
         return true;
     }
 

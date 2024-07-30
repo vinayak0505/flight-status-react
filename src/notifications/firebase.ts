@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getMessaging, isSupported } from "firebase/messaging";
 
-// Your web app's Firebase configuration
+// web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBAn0qds2ongfFpLAPbIs6pVsIr5V3Mf8Y",
   authDomain: "test-e37ab.firebaseapp.com",
